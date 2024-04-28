@@ -1,3 +1,6 @@
+
+
+
 Select e1.name
 from employee as e
 inner join employee as e1
