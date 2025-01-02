@@ -1,16 +1,3 @@
-
-#with cte as (
-#select e.id, e.name as Employeename, e.salary, e.departmentId, d.id, d.name as Departmentname, rank() over(partition by d.id order by e.salary desc) as rnk
-#from Employee e 
-#left join Department d on e.departmentId = d.id 
-#)
-#
-#
-#select Departmentname as Department, Employeename as Employee, e.Salary as Salary
-#from cte 
-#where rnk = 1
-#;
-
 WITH cte AS (
     SELECT 
         e.id,
@@ -19,7 +6,7 @@ WITH cte AS (
         e.departmentId,
         d.id AS deptId,
         d.name AS Departmentname,
-        RANK() OVER(PARTITION BY d.id ORDER BY e.salary DESC) AS rnk
+        DENSE_RANK() OVER(PARTITION BY d.id ORDER BY e.salary DESC) AS rnk
     FROM 
         Employee e 
     LEFT JOIN 
@@ -32,4 +19,4 @@ SELECT
 FROM 
     cte 
 WHERE 
-    rnk = 1;
+    rnk = 1
