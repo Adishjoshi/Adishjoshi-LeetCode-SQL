@@ -1,6 +1,7 @@
-<h2><a href="https://leetcode.com/problems/department-top-three-salaries/">185. Department Top Three Salaries</a></h2><h3>Hard</h3><hr><div class="sql-schema-wrapper__3VBi"><a class="sql-schema-link__3cEg">SQL Schema<svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__1Md2"><path fill-rule="evenodd" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></a></div><div><p>Table: <code>Employee</code></p>
+<h2><a href="https://leetcode.com/problems/department-top-three-salaries/?envType=problem-list-v2&envId=ajm7y9cg">185. Department Top Three Salaries</a></h2><h3>Hard</h3><hr><p>Table: <code>Employee</code></p>
 
-<pre>+--------------+---------+
+<pre>
++--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | id           | int     |
@@ -17,7 +18,8 @@ Each row of this table indicates the ID, name, and salary of an employee. It als
 
 <p>Table: <code>Department</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | id          | int     |
@@ -29,7 +31,7 @@ Each row of this table indicates the ID of a department and its name.
 
 <p>&nbsp;</p>
 
-<p>A company's executives are interested in seeing who earns the most money in each of the company's departments. A <strong>high earner</strong> in a department is an employee who has a salary in the <strong>top three unique</strong> salaries for that department.</p>
+<p>A company&#39;s executives are interested in seeing who earns the most money in each of the company&#39;s departments. A <strong>high earner</strong> in a department is an employee who has a salary in the <strong>top three unique</strong> salaries for that department.</p>
 
 <p>Write a solution to find the employees who are <strong>high earners</strong> in each of the departments.</p>
 
@@ -40,7 +42,8 @@ Each row of this table indicates the ID of a department and its name.
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> 
+<pre>
+<strong>Input:</strong> 
 Employee table:
 +----+-------+--------+--------------+
 | id | name  | salary | departmentId |
@@ -82,4 +85,10 @@ In the Sales department:
 - Sam earns the second-highest salary
 - There is no third-highest salary as there are only two employees
 </pre>
-</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>There are no employees with the <strong>exact</strong> same name, salary <em>and</em> department.</li>
+</ul>
