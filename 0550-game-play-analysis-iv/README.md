@@ -1,6 +1,7 @@
-<h2><a href="https://leetcode.com/problems/game-play-analysis-iv/">550. Game Play Analysis IV</a></h2><h3>Medium</h3><hr><div class="sql-schema-wrapper__3VBi"><a class="sql-schema-link__3cEg">SQL Schema<svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__1Md2"><path fill-rule="evenodd" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></a></div><div><p>Table: <code>Activity</code></p>
+<h2><a href="https://leetcode.com/problems/game-play-analysis-iv">550. Game Play Analysis IV</a></h2><h3>Medium</h3><hr><p>Table: <code>Activity</code></p>
 
-<pre>+--------------+---------+
+<pre>
++--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | player_id    | int     |
@@ -22,7 +23,8 @@ Each row is a record of a player who logged in and played a number of games (pos
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> 
+<pre>
+<strong>Input:</strong> 
 Activity table:
 +-----------+-----------+------------+--------------+
 | player_id | device_id | event_date | games_played |
@@ -42,4 +44,3 @@ Activity table:
 <strong>Explanation:</strong> 
 Only the player with id 1 logged back in after the first day he had logged in so the answer is 1/3 = 0.33
 </pre>
-</div>
