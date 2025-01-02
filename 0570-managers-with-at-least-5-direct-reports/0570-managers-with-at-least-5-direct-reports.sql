@@ -1,9 +1,19 @@
-
-
-
-Select e1.name
-from employee as e
-inner join employee as e1
-on e.managerId= e1.id #join on manager id from e table on the emp_id from the e1 table
-group by e.managerId 
-having count(e.id)>=5
+WITH cte AS (
+    SELECT 
+        COUNT(DISTINCT e1.id) AS emp_count, 
+        e2.name
+    FROM 
+        Employee e1
+    inner JOIN 
+        Employee e2 ON e1.managerId = e2.id
+    WHERE 
+        e1.managerId IS NOT NULL
+    GROUP BY 
+        e2.id, e2.name -- Group by both manager's ID and name
+    HAVING 
+        emp_count >= 5
+)
+SELECT 
+    name 
+FROM 
+    cte;
