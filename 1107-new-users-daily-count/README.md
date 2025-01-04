@@ -1,6 +1,7 @@
-<h2><a href="https://leetcode.com/problems/new-users-daily-count/">1107. New Users Daily Count</a></h2><h3>Medium</h3><hr><div class="sql-schema-wrapper__3VBi"><a class="sql-schema-link__3cEg">SQL Schema<svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__1Md2"><path fill-rule="evenodd" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></a></div><div><p>Table: <code>Traffic</code></p>
+<h2><a href="https://leetcode.com/problems/new-users-daily-count">1107. New Users Daily Count</a></h2><h3>Medium</h3><hr><p>Table: <code>Traffic</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user_id       | int     |
@@ -8,7 +9,7 @@
 | activity_date | date    |
 +---------------+---------+
 This table may have duplicate rows.
-The activity column is an ENUM (category) type of ('login', 'logout', 'jobs', 'groups', 'homepage').
+The activity column is an ENUM (category) type of (&#39;login&#39;, &#39;logout&#39;, &#39;jobs&#39;, &#39;groups&#39;, &#39;homepage&#39;).
 </pre>
 
 <p>&nbsp;</p>
@@ -22,7 +23,8 @@ The activity column is an ENUM (category) type of ('login', 'logout', 'jobs', 'g
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> 
+<pre>
+<strong>Input:</strong> 
 Traffic table:
 +---------+----------+---------------+
 | user_id | activity | activity_date |
@@ -52,6 +54,5 @@ Traffic table:
 +------------+-------------+
 <strong>Explanation:</strong> 
 Note that we only care about dates with non zero user count.
-The user with id 5 first logged in on 2019-03-01 so he's not counted on 2019-06-21.
+The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019-06-21.
 </pre>
-</div>
