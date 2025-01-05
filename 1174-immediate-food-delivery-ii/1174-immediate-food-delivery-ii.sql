@@ -1,15 +1,27 @@
+# Write your MySQL query statement below
+#1 element 1 find 1st order 
+#2 find if 1st order = immediate
+#3 find percentgae
 
+with firstorder as (
+select 
+delivery_id 
+,customer_id
+,order_date
+,customer_pref_delivery_date
+,rank() over(partition by customer_id order by order_date asc) as rnk
+,
+CASE 
+    WHEN customer_pref_delivery_date = order_date THEN 'immediate'
+    ELSE 'scheduled'
+    END AS ordertype 
+from 
+Delivery
+)
 
+select  
+ROUND(COUNT(CASE WHEN ordertype = 'immediate' THEN 1 END) * 100 / COUNT(ordertype),2) AS immediate_percentage
+from firstorder where rnk = 1
 
+    
 
-with first_order_immediate_scheduled as(
-select t.*,
-rank() over (partition by t.customer_id order by t.order_date) as first_order,
-case when order_date = customer_pref_delivery_date then 1 else 0 end as immediate
-from Delivery as t)
-
-
-
-select round(avg(immediate),4) * 100 as immediate_percentage
-from first_order_immediate_scheduled t
-where first_order = 1
