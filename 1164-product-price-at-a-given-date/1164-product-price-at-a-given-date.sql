@@ -1,15 +1,15 @@
-# Write your MySQL query statement below
 
-with cte as (
+WITH cte AS
+(SELECT *, RANK() OVER (PARTITION BY product_id ORDER BY change_date DESC) AS r 
+FROM Products
+WHERE change_date<= '2019-08-16')
 
-select *, rank() over(partition by product_id order by change_date desc) as r
-from Products
-where change_date <= '2019-08-16') 
+SELECT product_id, new_price AS price
+FROM cte
+WHERE r = 1
 
-select product_id, new_price as price
-from cte 
-where r = 1 
-union 
-select product_id, 10 as price
-From Products
-WHERE product_id not in (select product_id from cte)
+UNION
+
+SELECT product_id, 10 AS price
+FROM Products
+WHERE product_id NOT IN (SELECT product_id FROM cte)
