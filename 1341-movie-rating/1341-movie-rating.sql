@@ -1,4 +1,4 @@
-# Write your MySQL query statement below
+
 with cte as 
     (select u.name as results from users u join movierating m on u.user_id = m.user_id
     group by u.name
