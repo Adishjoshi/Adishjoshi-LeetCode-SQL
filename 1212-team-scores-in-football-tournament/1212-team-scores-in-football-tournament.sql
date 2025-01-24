@@ -1,10 +1,17 @@
--- Write your MySQL query statement below
-SELECT 
-    host_team,
-    SUM(CASE 
-        WHEN host_goals > guest_goals THEN 3
-        WHEN host_goals = guest_goals THEN 1
-        ELSE 0 
-    END) AS total_score
-FROM Matches
-GROUP BY host_team
+with cte as
+(SELECT *
+FROM Teams
+LEFT JOIN Matches
+ON team_id=host_team OR team_id=guest_team
+)
+
+-- select * from cte
+
+SELECT team_id,team_name,
+SUM(CASE WHEN team_id=host_team AND host_goals>guest_goals THEN 3
+         WHEN team_id=guest_team AND guest_goals>host_goals THEN 3
+         WHEN team_id=host_team AND host_goals=guest_goals THEN 1
+         WHEN team_id=guest_team AND guest_goals=host_goals THEN 1 ELSE 0 END) as num_points
+from cte 
+GROUP BY team_id
+ORDER BY num_points DESC, team_id ASC;
