@@ -10,3 +10,5 @@ select distinct page_id as recommended_page
 from Likes
 where user_id in (select friends from cte)
 and page_id not in (select page_id from Likes where user_id =1)
+
+
