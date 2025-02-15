@@ -1,8 +1,10 @@
-# Write your MySQL query statement below
-select 
-u.name
-,sum(amount) as balance
-from Transactions t
-join Users u on t.account = u.account 
-group by t.account
-having balance > 10000
+
+
+Select
+u.name,
+sum(t.amount) as balance
+from Users u
+join Transactions t
+    on u.account = t.account
+group by 1
+having balance >10000
