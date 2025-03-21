@@ -1,6 +1,7 @@
-<h2><a href="https://leetcode.com/problems/user-activity-for-the-past-30-days-i/">1141. User Activity for the Past 30 Days I</a></h2><h3>Easy</h3><hr><div class="sql-schema-wrapper__3VBi"><a class="sql-schema-link__3cEg">SQL Schema<svg viewBox="0 0 24 24" width="1em" height="1em" class="icon__1Md2"><path fill-rule="evenodd" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></a></div><div><p>Table: <code>Activity</code></p>
+<h2><a href="https://leetcode.com/problems/user-activity-for-the-past-30-days-i/">1141. User Activity for the Past 30 Days I</a></h2><h3>Easy</h3><hr><p>Table: <code>Activity</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user_id       | int     |
@@ -9,7 +10,7 @@
 | activity_type | enum    |
 +---------------+---------+
 This table may have duplicate rows.
-The activity_type column is an ENUM (category) of type ('open_session', 'end_session', 'scroll_down', 'send_message').
+The activity_type column is an ENUM (category) of type (&#39;open_session&#39;, &#39;end_session&#39;, &#39;scroll_down&#39;, &#39;send_message&#39;).
 The table shows the user activities for a social media website. 
 Note that each session belongs to exactly one user.
 </pre>
@@ -25,7 +26,8 @@ Note that each session belongs to exactly one user.
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> 
+<pre>
+<strong>Input:</strong> 
 Activity table:
 +---------+------------+---------------+---------------+
 | user_id | session_id | activity_date | activity_type |
@@ -51,4 +53,3 @@ Activity table:
 +------------+--------------+ 
 <strong>Explanation:</strong> Note that we do not care about days with zero active users.
 </pre>
-</div>
