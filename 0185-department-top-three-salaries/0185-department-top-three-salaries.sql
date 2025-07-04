@@ -1,24 +1,13 @@
-# Write your MySQL query statement below
-WITH cte AS (
-    SELECT 
-        e.id,
-        e.name AS Employeename,
-        e.salary,
-        e.departmentId,
-        d.id AS deptId,
-        d.name AS Departmentname,
-        DENSE_RANK() OVER(PARTITION BY d.id ORDER BY e.salary DESC) AS rnk 
-        #Why dense rank? As two people can still have same salary
-    FROM 
-        Employee e 
-    LEFT JOIN 
-        Department d ON e.departmentId = d.id 
+with cte as (select 
+e.id
+,e.name as "Employee"
+,e.salary
+,d.name as "Department"
+,dense_rank() over(partition by d.name order by e.salary desc) as rk
+from Employee as e 
+left join Department as d ON e.departmentId = d.id
 )
-SELECT 
-    Departmentname AS Department,
-    Employeename AS Employee,
-    salary AS Salary
-FROM 
-    cte 
-WHERE 
-    rnk <= 3
+
+select Department, Employee, salary
+from cte
+where rk <= 3
