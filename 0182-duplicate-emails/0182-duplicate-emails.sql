@@ -1,6 +1,5 @@
-# Write your MySQL query statement below
-
-
-SELECT email from Person
-group by email
-having count(email) > 1
+select 
+max(Email) as Email
+from Person
+group by Email
+having count(id) > 1 
