@@ -1,6 +1,3 @@
-
-
-# Write your MySQL query statement below
 SELECT ROUND((select COUNT(player_id) FROM (
     SELECT 
         player_id,
@@ -10,4 +7,5 @@ SELECT ROUND((select COUNT(player_id) FROM (
     FROM Activity
 ) AS tmp 
 
-WHERE datediff(next_date, event_date) = 1 AND login_time = 1) / (SELECT COUNT(DISTINCT(player_id)) FROM Activity), 2) AS fraction;
+WHERE datediff(next_date, event_date) = 1 AND login_time = 1) 
+/ (SELECT COUNT(DISTINCT(player_id)) FROM Activity), 2) AS fraction;
