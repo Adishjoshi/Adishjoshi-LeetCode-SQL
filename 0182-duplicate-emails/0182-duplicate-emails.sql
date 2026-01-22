@@ -1,5 +1,5 @@
 select 
-max(Email) as Email
+Email 
 from Person
-group by Email
-having count(id) > 1 
+group by email 
+having Count(id) >= 2
