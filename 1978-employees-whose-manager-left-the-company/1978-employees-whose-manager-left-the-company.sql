@@ -1,9 +1,7 @@
-SELECT 
-    employee_id
-FROM 
-    Employees 
-WHERE 
-    salary < 30000
-    AND manager_id NOT IN (SELECT employee_id FROM Employees)
-    AND manager_id IS NOT NULL
+
+select 
+e.employee_id 
+from Employees as e
+where e.manager_id not in (select employee_id from Employees)
+and e.salary < '30000'
 order by employee_id asc
