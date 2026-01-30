@@ -1,21 +1,36 @@
-WITH cte AS (
-    SELECT 
-        student_id, 
-        course_id, 
-        grade, 
-        RANK() OVER (PARTITION BY student_id ORDER BY grade DESC) AS rnk #order by grades max
-        RANK() OVER (PARTITION BY student_id ORDER BY course_id ASC) AS rnk2 #order by course id least
-    FROM Enrollments
-),
-cte2 AS (
-    SELECT 
-        student_id, 
-        course_id, 
-        grade, 
-        RANK() OVER (PARTITION BY student_id ORDER BY course_id ASC) AS rnk2 #order by course id least
-    FROM cte
-    WHERE rnk = 1
+-- Write your PostgreSQL query statement below
+with cte3 as (
+with cte2 as (
+with cte as (
+
+    select
+    student_id
+    ,course_id
+    ,grade
+    ,rank() over(partition by student_id order by grade desc) as rk
+    from Enrollments
+
 )
-SELECT student_id, course_id, grade
-FROM cte2
-where rnk2 = 1
+
+select 
+student_id
+,course_id
+,grade
+from cte
+where  rk = 1
+order by course_id asc
+)
+
+select 
+student_id
+,course_id
+,grade
+,row_number() over(partition by student_id order by course_id) as rnn
+from cte2
+)
+
+select 
+student_id
+,course_id
+,grade
+from cte3 where rnn = 1
