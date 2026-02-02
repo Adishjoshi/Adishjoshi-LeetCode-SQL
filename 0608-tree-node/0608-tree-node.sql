@@ -1,8 +1,3 @@
-# Write your MySQL query statement below
-#if the node has noo parent it is root 
-#if the node has parent and child then inner 
-#if has parent but no child then leaf 
-
 
 with cte as (select 
 t1.id as parent,
@@ -21,4 +16,3 @@ WHEN child is null then 'Leaf'
 ELSE 'Inner' END as type
 from cte
 where num = 1
-
