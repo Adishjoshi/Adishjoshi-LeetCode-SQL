@@ -1,3 +1,4 @@
+-- Write your PostgreSQL query statement below
 with cte as (
   select
     salary
@@ -7,4 +8,4 @@ with cte as (
 
 select
   max(case when rk = 2 then salary else null end) as SecondHighestSalary
-from cte;
+from cte
