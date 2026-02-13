@@ -1,36 +1,15 @@
-WITH cte AS (
-    SELECT 
-        s.sale_id,
-        s.product_id,
-        s.user_id,
-        s.quantity,
-        p.price,
-        (p.price * s.quantity) AS spend
-    FROM 
-        Sales s 
-    LEFT JOIN 
-        Product p ON s.product_id = p.product_id
-),
-cte2 AS (
-    SELECT 
-        user_id, 
-        product_id, 
-        SUM(spend) AS totalspend
-    FROM 
-        cte
-    GROUP BY 
-        user_id, 
-        product_id
-),
-cte3 AS (
-    SELECT 
-        *,
-        RANK() OVER (PARTITION BY user_id ORDER BY totalspend DESC) AS rnk
-    FROM 
-        cte2
+-- Write your PostgreSQL query statement below
+with cte as 
+(select 
+s.user_id
+,s.product_id
+,rank() over(partition by s.user_id order by sum(s.quantity*p.price) desc) as rkk
+from Sales as s
+inner join Product as p ON s.product_id = p.product_id
+group by s.user_id,s.product_id
 )
-SELECT 
-    user_id, product_id
-FROM 
-    cte3 
-    where rnk = '1'
+
+select 
+user_id, product_id
+from cte 
+where rkk = 1
