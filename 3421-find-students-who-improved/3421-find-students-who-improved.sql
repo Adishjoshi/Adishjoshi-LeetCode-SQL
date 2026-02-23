@@ -1,13 +1,28 @@
--- Write your PostgreSQL query statement below
-WITH temp AS(
-    SELECT DISTINCT student_id, subject, 
-    FIRST_VALUE(score) OVER(PARTITION BY student_id, subject ORDER BY exam_date) first_score,
-    LAST_VALUE(score) OVER(PARTITION BY student_id, subject ORDER BY exam_date ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) latest_score,
-    COUNT(student_id) OVER(PARTITION BY student_id, subject) diff_dates
+WITH scored AS (
+    SELECT 
+        student_id,
+        subject,
+        score,
+        exam_date,
+        FIRST_VALUE(score) OVER (
+            PARTITION BY student_id, subject 
+            ORDER BY exam_date ASC
+        ) AS first_score,
+        FIRST_VALUE(score) OVER (
+            PARTITION BY student_id, subject 
+            ORDER BY exam_date DESC
+        ) AS latest_score,
+        COUNT(*) OVER (
+            PARTITION BY student_id, subject
+        ) AS exam_count
     FROM Scores
 )
-SELECT 
-    student_id, subject ,first_score, latest_score
-FROM temp
-WHERE first_score < latest_score AND  diff_dates > 1
+SELECT DISTINCT
+    student_id,
+    subject,
+    first_score,
+    latest_score
+FROM scored
+WHERE exam_count >= 2
+  AND latest_score > first_score
 ORDER BY student_id, subject
