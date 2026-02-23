@@ -1,24 +1,16 @@
-# Write your MySQL query statement below
-with cte as(
-select 
-e.employee_id
-,e.employee_name
-,m.employee_id as mgr_id
-,m.employee_name as mgr_name
-,d.employee_id as dir_id 
-,d.employee_name as dir_name
-,v.employee_id as vp_id 
-,v.employee_name as vp_name
+WITH RECURSIVE hierarchy AS (
+    -- Base case: direct reports to employee 1
+    SELECT employee_id
+    FROM Employees
+    WHERE manager_id = 1 AND employee_id <> 1  -- exclude the boss themselves!
 
-from Employees as e 
-left join Employees as m on e.manager_id = m.employee_id 
-left join Employees as d on m.manager_id = d.employee_id
-left join Employees as v on d.manager_id = v.employee_id
+    UNION ALL
+
+    -- Recursive step: find reports of people already found
+    SELECT e.employee_id
+    FROM Employees e
+    JOIN hierarchy h ON e.manager_id = h.employee_id
+    WHERE e.employee_id <> e.manager_id  -- prevent self-referencing loops!
 )
-
-select 
-employee_id 
-from cte 
-where vp_id = 1
-and employee_id <> 1
-order by employee_id 
+SELECT employee_id
+FROM hierarchy
