@@ -4,14 +4,17 @@ WITH scored AS (
         subject,
         score,
         exam_date,
+
         FIRST_VALUE(score) OVER (
             PARTITION BY student_id, subject 
             ORDER BY exam_date ASC
         ) AS first_score,
+
         FIRST_VALUE(score) OVER (
             PARTITION BY student_id, subject 
             ORDER BY exam_date DESC
         ) AS latest_score,
+        
         COUNT(*) OVER (
             PARTITION BY student_id, subject
         ) AS exam_count
