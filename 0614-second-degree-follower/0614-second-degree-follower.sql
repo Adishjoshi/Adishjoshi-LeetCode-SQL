@@ -1,4 +1,4 @@
-# Write your MySQL query statement below
+
 select A.followee AS follower,A.followed_by as num
 FROM (select followee, count(*) as followed_by
 from Follow
