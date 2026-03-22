@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Database
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0569-median-employee-salary](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/0569-median-employee-salary/) | Hard |
 | [1070-product-sales-analysis-iii](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1070-product-sales-analysis-iii/) | Medium |
 | [1112-highest-grade-for-each-student](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1112-highest-grade-for-each-student/) | Medium |
 | [1212-team-scores-in-football-tournament](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1212-team-scores-in-football-tournament/) | Medium |
