@@ -12,6 +12,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1212-team-scores-in-football-tournament](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1212-team-scores-in-football-tournament/) | Medium |
 | [1251-average-selling-price](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1251-average-selling-price/) | Easy |
 | [1270-all-people-report-to-the-given-manager](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1270-all-people-report-to-the-given-manager/) | Medium |
+| [1581-customer-who-visited-but-did-not-make-any-transactions](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1581-customer-who-visited-but-did-not-make-any-transactions/) | Easy |
 | [2112-the-airport-with-the-most-traffic](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/2112-the-airport-with-the-most-traffic/) | Medium |
 | [2854-rolling-average-steps](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/2854-rolling-average-steps/) | Medium |
 <!---LeetCode Topics End-->
