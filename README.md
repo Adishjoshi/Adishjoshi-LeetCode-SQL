@@ -9,6 +9,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0569-median-employee-salary](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/0569-median-employee-salary/) | Hard |
 | [1070-product-sales-analysis-iii](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1070-product-sales-analysis-iii/) | Medium |
 | [1112-highest-grade-for-each-student](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1112-highest-grade-for-each-student/) | Medium |
+| [1174-immediate-food-delivery-ii](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1174-immediate-food-delivery-ii/) | Medium |
 | [1212-team-scores-in-football-tournament](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1212-team-scores-in-football-tournament/) | Medium |
 | [1251-average-selling-price](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1251-average-selling-price/) | Easy |
 | [1270-all-people-report-to-the-given-manager](https://github.com/Adishjoshi/Adishjoshi-LeetCode-SQL/tree/main/1270-all-people-report-to-the-given-manager/) | Medium |
